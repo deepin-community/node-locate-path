@@ -1,0 +1,33 @@
+Source: node-locate-path
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Paolo Greppi <paolo.greppi@libpf.com>
+Section: javascript
+Testsuite: autopkgtest-pkg-nodejs
+Priority: optional
+Build-Depends:
+ debhelper-compat (= 13)
+ , node-p-locate <!nocheck>
+ , node-path-exists <!nocheck>
+ , node-tape <!nocheck>
+ , dh-sequence-nodejs
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-locate-path
+Vcs-Git: https://salsa.debian.org/js-team/node-locate-path.git
+Homepage: https://github.com/sindresorhus/locate-path#readme
+Rules-Requires-Root: no
+
+Package: node-locate-path
+Architecture: all
+Depends:
+ ${misc:Depends}
+ , nodejs
+ , node-p-locate
+ , node-path-exists
+Description: Get the first path that exists on disk of multiple paths
+ Node.js module to get the first path that exists on disk, from
+ an array of multiple possible paths.
+ .
+ Provides a synchronous version and an asynchronous version (that
+ returns a promise).
+ .
+ Node.js is an event-based server-side JavaScript engine.

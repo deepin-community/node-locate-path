@@ -1,0 +1,59 @@
+node-locate-path (6.0.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Modernize debian/watch
+  * Fix GitHub tags regex
+  * Update standards version to 4.6.0, no changes needed.
+  * Fix test
+
+ -- Yadd <yadd@debian.org>  Fri, 08 Oct 2021 11:13:03 +0200
+
+node-locate-path (6.0.0-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Submit.
+  * Update standards version to 4.5.0, no changes needed.
+
+  [ Xavier Guimard ]
+  * Bump debhelper compatibility level to 13
+  * Use dh-sequence-nodejs
+  * New upstream version 6.0.0
+  * Update copyright
+
+ -- Xavier Guimard <yadd@debian.org>  Fri, 30 Oct 2020 09:23:47 +0100
+
+node-locate-path (5.0.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable after successful tests
+
+ -- Xavier Guimard <yadd@debian.org>  Thu, 19 Dec 2019 23:16:40 +0100
+
+node-locate-path (5.0.0-1) experimental; urgency=medium
+
+  * Team upload
+
+  [ Paolo Greppi ]
+  * Update Vcs fields for migration to https://salsa.debian.org/
+  * enable salsa CI pipeline
+
+  [ Xavier Guimard ]
+  * Bump debhelper compatibility level to 12
+  * Declare compliance with policy 4.4.1
+  * Add "Rules-Requires-Root: no"
+  * Add debian/gbp.conf
+  * Add upstream/metadata
+  * Drop unneeded version constraints from (build) dependencies
+  * New upstream version 5.0.0
+  * Replace mocha by tape for test
+  * Switch test and install to pkg-js-tools
+
+ -- Xavier Guimard <yadd@debian.org>  Wed, 18 Dec 2019 21:43:39 +0100
+
+node-locate-path (2.0.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #883657)
+
+ -- Paolo Greppi <paolo.greppi@libpf.com>  Wed, 06 Dec 2017 10:05:47 +0100
