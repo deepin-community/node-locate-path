@@ -1,35 +1,40 @@
 Description: switch test from ava to tape
 Author: Xavier Guimard <yadd@debian.org>
 Forwarded: not-needed
-Last-Update: 2021-10-08
+Last-Update: 2022-07-27
 
 --- a/test.js
 +++ b/test.js
 @@ -1,5 +1,5 @@
+ import process from 'node:process';
 -import test from 'ava';
--import locatePath from '.';
-+const test = require('tape');
-+const locatePath = require('.');
++import test from 'tape';
+ import {locatePath, locatePathSync} from './index.js';
  
  const paths = [
- 	'noop.foo',
-@@ -17,6 +17,7 @@
+@@ -19,21 +19,6 @@
  	t.is(await locatePath(['fixture']), undefined);
  	t.is(await locatePath(['fixture'], {type: 'directory'}), 'fixture');
  
-+	/*
- 	await t.throwsAsync(locatePath(['fixture'], {type: 'rainbows'}), {
- 		instanceOf: Error,
- 		message: 'Invalid type specified: rainbows'
-@@ -26,6 +27,7 @@
- 		instanceOf: Error,
- 		message: 'Invalid type specified: undefined'
- 	});
-+	*/
- 
+-	await t.throwsAsync(locatePath(['fixture'], {type: 'rainbows'}), {
+-		instanceOf: Error,
+-		message: 'Invalid type specified: rainbows',
+-	});
+-
+-	await t.throwsAsync(locatePath(['fixture'], {type: 'toString'}), {
+-		instanceOf: Error,
+-		message: 'Invalid type specified: toString',
+-	});
+-
+-	await t.throwsAsync(locatePath(['fixture'], {type: 1}), {
+-		instanceOf: Error,
+-		message: 'Invalid type specified: 1',
+-	});
+-
  	if (process.platform !== 'win32') {
  		t.is(await locatePath(['file-link', 'unicorn'], {cwd: 'fixture', type: 'file'}), 'file-link');
-@@ -35,6 +37,7 @@
+ 		t.is(await locatePath(['directory-link', 'unicorn'], {cwd: 'fixture', type: 'file'}), 'unicorn');
+@@ -42,6 +27,7 @@
  		t.is(await locatePath(['file-link', 'unicorn'], {cwd: 'fixture', allowSymlinks: false, type: 'file'}), 'unicorn');
  		t.is(await locatePath(['directory-link', 'unicorn'], {cwd: 'fixture', allowSymlinks: false, type: 'directory'}), undefined);
  	}
@@ -37,26 +42,33 @@ Last-Update: 2021-10-08
  });
  
  test('sync', t => {
-@@ -48,16 +51,10 @@
+@@ -56,23 +42,14 @@
  
  	t.throws(() => {
- 		locatePath.sync(['fixture'], {type: 'rainbows'});
+ 		locatePathSync(['fixture'], {type: 'rainbows'});
 -	}, {
 -		instanceOf: Error,
--		message: 'Invalid type specified: rainbows'
+-		message: 'Invalid type specified: rainbows',
  	});
  
  	t.throws(() => {
- 		locatePath.sync(['fixture'], {type: undefined});
+ 		locatePathSync(['fixture'], {type: 'toString'});
 -	}, {
 -		instanceOf: Error,
--		message: 'Invalid type specified: undefined'
+-		message: 'Invalid type specified: toString',
+ 	});
+ 
+ 	t.throws(() => {
+ 		locatePathSync(['fixture'], {type: 1});
+-	}, {
+-		instanceOf: Error,
+-		message: 'Invalid type specified: 1',
  	});
  
  	if (process.platform !== 'win32') {
-@@ -68,4 +65,5 @@
- 		t.is(locatePath.sync(['file-link', 'unicorn'], {cwd: 'fixture', allowSymlinks: false, type: 'file'}), 'unicorn');
- 		t.is(locatePath.sync(['directory-link', 'unicorn'], {cwd: 'fixture', allowSymlinks: false, type: 'directory'}), undefined);
+@@ -83,4 +60,5 @@
+ 		t.is(locatePathSync(['file-link', 'unicorn'], {cwd: 'fixture', allowSymlinks: false, type: 'file'}), 'unicorn');
+ 		t.is(locatePathSync(['directory-link', 'unicorn'], {cwd: 'fixture', allowSymlinks: false, type: 'directory'}), undefined);
  	}
 +	t.end();
  });

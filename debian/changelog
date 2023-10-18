@@ -1,3 +1,67 @@
+node-locate-path (7.1.1-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Apply multi-arch hints. + node-locate-path: Add Multi-Arch: foreign.
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Thu, 08 Dec 2022 00:13:47 +0000
+
+node-locate-path (7.1.1-1) unstable; urgency=medium
+
+  * Team upload
+  * Declare compliance with policy 4.6.1
+  * New upstream version 7.1.1
+  * Refresh patch
+
+ -- Yadd <yadd@debian.org>  Wed, 27 Jul 2022 23:13:30 +0200
+
+node-locate-path (7.1.0-6) unstable; urgency=medium
+
+  * Team upload
+  * Really require nodejs 14 for autopkgtest
+
+ -- Yadd <yadd@debian.org>  Fri, 01 Apr 2022 11:10:52 +0200
+
+node-locate-path (7.1.0-5) unstable; urgency=medium
+
+  * Team upload
+  * Require nodejs 14 for test
+
+ -- Yadd <yadd@debian.org>  Wed, 30 Mar 2022 10:26:11 +0200
+
+node-locate-path (7.1.0-4) unstable; urgency=medium
+
+  * Team upload
+  * Drop dependency to node-path-exists
+  * Back to unstable after successful tests
+
+ -- Yadd <yadd@debian.org>  Tue, 29 Mar 2022 10:27:42 +0200
+
+node-locate-path (7.1.0-3) experimental; urgency=medium
+
+  * Team upload
+  * Drop Breaks field due to circular dependency
+
+ -- Yadd <yadd@debian.org>  Sun, 27 Mar 2022 14:24:52 +0200
+
+node-locate-path (7.1.0-2) experimental; urgency=medium
+
+  * Team upload
+  * Breaks: node-find-up < 6
+  * Fix autopkgtest using pkg-js-autopkgtest >= 0.14.11
+
+ -- Yadd <yadd@debian.org>  Fri, 25 Mar 2022 16:05:52 +0100
+
+node-locate-path (7.1.0-1) experimental; urgency=medium
+
+  * Team upload
+  * Fix filenamemangle
+  * Drop dependency to nodejs
+  * New upstream version 7.1.0
+  * Require node-p-locate >= 6
+  * Update test
+
+ -- Yadd <yadd@debian.org>  Wed, 23 Mar 2022 17:15:14 +0100
+
 node-locate-path (6.0.0-2) unstable; urgency=medium
 
   * Team upload
